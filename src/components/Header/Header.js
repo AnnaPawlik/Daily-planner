@@ -1,14 +1,14 @@
 import React from 'react';
-import HeaderNavigation from './HeaderNavigation';
-import Button from '../Button/Button';
 import styles from './Header.module.scss';
+import Button from '../Button/Button';
+import HeaderNavigation from './HeaderNavigation';
 
-const Header = () => (
-    <div className={styles.wrapper}>
+const Header = ({openModalFn}) => (
+    <header className={styles.wrapper}>
         <h2>Daily planner</h2>
         <HeaderNavigation />
-        <Button>Add</Button>
-    </div>
+        <Button onClick={openModalFn}>Add</Button>
+    </header>
 );
 
 export default Header;

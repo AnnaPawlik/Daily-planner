@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Button.module.scss';
 import PropTypes from 'prop-types';
 
-const Button = ({children}) => (
-    <button className={styles.button}>
+const Button = ({children, ...props}) => (
+    <button className={styles.button}{...props}>
         {children}
     </button>
 );
