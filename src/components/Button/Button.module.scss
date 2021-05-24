@@ -1,12 +1,14 @@
 .button {
   display: block;
-  max-width: 120px;
-  font-size: 10px;
+  font-size: 20px;
   text-decoration: none;
-  padding: 7px 12px;
+  padding: 12px 13px;
   font-weight: 500;
   background: none;
   border: 2px solid #000;
   color: #000;
   cursor: pointer;
+  border-radius: 50%;
+  height: 50px;
+	width: 50px;
 }
