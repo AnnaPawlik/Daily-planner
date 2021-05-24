@@ -1,14 +1,24 @@
-.navItem {
-    list-style: none;
-    display: inline-block;
-    margin-right: 50px;
+.wrapper {
+    padding: 0;
 
-    &Link {
-        text-decoration: none;
-        color: #818181;
+    .navItem {
+        list-style: none;
+        margin-top: 20px;
+        font-size: 30px;
+        padding: 10px;
 
-        &Active {
-            font-weight: 700;
+        &:hover {
+            background-color: #fff;
+            border-radius: 20%;
+        }
+
+        &Link {
+            text-decoration: none;
+            color: #000000;
+
+            &Active {
+                font-weight: 700;
+            }
         }
     }
 }

@@ -6,6 +6,18 @@
   box-sizing: border-box;
 }
 
+#root {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header . . ."
+    "header . . ."
+    "header . . .";
+  height: 100vh;
+}
+
 body {
   margin: 0;
   padding: 0;

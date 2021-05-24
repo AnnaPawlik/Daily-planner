@@ -1,6 +1,9 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 120px 1fr 100px;
-    align-items: center;
+    align-items: start;
     padding: 30px 40px;
+    grid-area: header;
+    grid-template-rows: 1fr 3fr 1fr;
+    background-color: #FFD829;
+    justify-items: center;
 }

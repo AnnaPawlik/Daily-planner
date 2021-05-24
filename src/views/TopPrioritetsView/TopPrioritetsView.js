@@ -1,7 +1,10 @@
 import React from 'react';
+import styles from './TopPrioritetsView.module.scss';
 
 const TopPrioritetsView = () => (
-    <h1>TopPrioritetsView</h1>
+    <div className={styles.wrapper}>
+        <h2>TopPrioritetsView</h2>
+    </div>
 );
 
 export default TopPrioritetsView;
