@@ -5,9 +5,17 @@ import styles from './Form.module.scss';
 import Radio from './FormRadio';
 import AppContext from '../../context';
 
+const types = {
+    priority: "priority",
+    task: "task",
+    product: "product",
+    note: "note",
+}
+
 class Form extends React.Component {
 
     state = {
+        type: types.priority,
         title: '',
         description: '',
     };

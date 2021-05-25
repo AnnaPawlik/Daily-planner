@@ -19,20 +19,14 @@ class App extends React.Component {
     isModalOpen: false,
   };
 
-  addItem = (e) => {
+  addItem = (e, newItem) => {
     e.preventDefault();
-
-    const newItem = {
-      name: e.target[0].value,
-      description: e.target[1].value
-    };
-
     this.setState(prevState => ({
-      items: [...prevState.items, newItem],
+      [newItem.type]: [...prevState[newItem.type], newItem],
     }));
 
     this.closeModal();
-  }
+  };
 
   openModal = () => {
     this.setState({
