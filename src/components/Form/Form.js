@@ -24,9 +24,17 @@ class Form extends React.Component {
         this.setState({
             [e.target.name]: e.target.value,
         });
-    }
+    };
+
+    handleRadioChange = type => {
+        this.setState({
+            type: type,
+        });
+    };
 
     render() {
+        const { type } = this.state;
+
         return(
             <AppContext.Consumer>
                 {(context) => (
@@ -38,10 +46,34 @@ class Form extends React.Component {
                         onSubmit={(e) => context.addItem(e, this.state)}
                     >
                         <div>
-                            <Radio>Priority</Radio>
-                            <Radio>Task</Radio>
-                            <Radio>Shopping</Radio>
-                            <Radio>Note</Radio>
+                            <Radio 
+                                id={types.priority}
+                                checked={type === types.priority}
+                                changeFn={() => this.handleRadioChange(types.priority)}
+                            >
+                                Priority
+                            </Radio>
+                            <Radio
+                                id={types.task}
+                                checked={type === types.task}
+                                changeFn={() => this.handleRadioChange(types.task)}
+                            >
+                                Task
+                            </Radio>
+                            <Radio
+                                id={types.product}
+                                checked={type === types.product}
+                                changeFn={() => this.handleRadioChange(types.product)}
+                            >
+                                Shopping
+                            </Radio>
+                            <Radio
+                                id={types.note}
+                                checked={type === types.note}
+                                changeFn={() => this.handleRadioChange(types.note)}
+                            >
+                                Note
+                            </Radio>
                         </div>
                         <Input
                             onChange={this.handleInputChange}

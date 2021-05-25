@@ -10,7 +10,7 @@ const Radio = ({id, checked, changeFn, children}) => (
       onChange={changeFn}
     />
     <div className={styles.radioButton} />
-        {children}
+  {children}
   </label>
 )
 

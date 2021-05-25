@@ -60,9 +60,8 @@ class App extends React.Component {
             </Switch>
             { isModalOpen && <Modal closeModalFn={this.closeModal}/> }
         </AppContext.Provider>
-        </BrowserRouter>
-        
-    )
+        </BrowserRouter>      
+    );
   }
 };
 

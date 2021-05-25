@@ -11,7 +11,7 @@ const ListItem = ({title, description}) => (
 
 ListItem.propTypes = { 
     title: PropTypes.string.isRequired,
-    description: PropTypes.string
+    description: PropTypes.string.isRequired,
 }
 
 export default ListItem;
