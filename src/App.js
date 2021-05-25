@@ -7,12 +7,32 @@ import NotesView from './views/NotesView/NotesView';
 import './App.css';
 import Header from './components/Header/Header';
 import Modal from'./components/Modal/Modal';
+import AppContext from './context';
 
 class App extends React.Component {
 
   state = {
+    priority: [],
+    task: [],
+    product: [],
+    note: [],
     isModalOpen: false,
   };
+
+  addItem = (e) => {
+    e.preventDefault();
+
+    const newItem = {
+      name: e.target[0].value,
+      description: e.target[1].value
+    };
+
+    this.setState(prevState => ({
+      items: [...prevState.items, newItem],
+    }));
+
+    this.closeModal();
+  }
 
   openModal = () => {
     this.setState({
@@ -29,17 +49,23 @@ class App extends React.Component {
   render() {
 
     const { isModalOpen } = this.state;
+    const contextElements = {
+      ...this.state,
+      addItem: this.addItem
+    }
 
     return (
         <BrowserRouter>
+        <AppContext.Provider value={contextElements}>
           <Header openModalFn={this.openModal}/>
-          <Switch>
-            <Route exact path="/" component={TopPrioritetsView} />
-            <Route path="/tasks" component={TasksView} />
-            <Route path="/shoppinglist" component={ShoppingListView} />
-            <Route path="/notes" component={NotesView} />
-          </Switch>
-          { isModalOpen && <Modal closeModalFn={this.closeModal}/> }
+            <Switch>
+              <Route exact path="/" component={TopPrioritetsView} />
+              <Route path="/tasks" component={TasksView} />
+              <Route path="/shoppinglist" component={ShoppingListView} />
+              <Route path="/notes" component={NotesView} />
+            </Switch>
+            { isModalOpen && <Modal closeModalFn={this.closeModal}/> }
+        </AppContext.Provider>
         </BrowserRouter>
         
     )

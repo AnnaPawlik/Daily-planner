@@ -1,10 +1,14 @@
 import React from 'react';
+import List from '../../components/List/List';
+import AppContext from '../../context';
 import styles from './NotesView.module.scss';
 
 const NotesView = () => (
-    <div className={styles.wrapper}>
-        <h2>NotesView</h2>
-    </div>
+   <AppContext.Consumer>
+       {(context) => {
+           <List items={context.note}/>
+       }}
+   </AppContext.Consumer>
 );
 
 export default NotesView;

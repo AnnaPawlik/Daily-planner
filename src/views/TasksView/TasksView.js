@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './TasksView.module.scss';
+import AppContext from '../../context';
+import List from '../../components/List/List';
 
 const TasksView = () => (
-    <div className={styles.wrapper}>
-        <h2>TasksView</h2>
-    </div>
+    <AppContext.Consumer>
+        {(context) => {
+            <List items={context.task} />
+        }}
+    </AppContext.Consumer>
 );
 
 export default TasksView;

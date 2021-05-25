@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './TopPrioritetsView.module.scss';
 import List from '../../components/List/List';
+import AppContext from '../../context';
 
 const TopPrioritetsView = () => (
-    <div className={styles.wrapper}>
-        <h2>TopPrioritetsView</h2>
-        <List />
-    </div>
+    <AppContext.Consumer>
+        {(context) => (
+            <List items={context.priority}/>
+        )}
+    </AppContext.Consumer>
 );
 
 export default TopPrioritetsView;
