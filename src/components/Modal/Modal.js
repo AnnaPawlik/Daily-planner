@@ -5,7 +5,7 @@ import Form from '../Form/Form';
 
 const Modal = ({closeModalFn}) => (
     <div className={styles.wrapper}> 
-        <Button onClick={closeModalFn} className={styles.closeButton}>x</Button>
+        <Button onClick={closeModalFn} className={styles.closeButton}></Button>
         <Form />
     </div>
 );

@@ -4,11 +4,19 @@ import Button from '../Button/Button';
 import styles from './Form.module.scss';
 import Radio from './FormRadio';
 import AppContext from '../../context';
+import Title from '../Title/Title';
 
 const types = {
     priority: "priority",
     task: "task",
     product: "product",
+    note: "note",
+}
+
+const description = {
+    priority: "priority",
+    task: "task",
+    product: "shopping products",
     note: "note",
 }
 
@@ -39,7 +47,7 @@ class Form extends React.Component {
             <AppContext.Consumer>
                 {(context) => (
                     <div className={styles.wrapper}>
-                    <h2>Title</h2>
+                    <Title>Add new {description[type]}</Title>
                     <form 
                         autoComplete="off"
                         className={styles.form}
@@ -88,7 +96,7 @@ class Form extends React.Component {
                             tag="textarea"
                             label="description"
                         />
-                        <Button>+</Button>
+                        <Button secondary>Add</Button>
                     </form>
                 </div>
                 )}

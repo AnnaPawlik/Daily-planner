@@ -2,7 +2,7 @@
   position: fixed;
   padding: 30px 40px;
   right: 0;
-  width: 40vw;
+  width: 30vw;
   height: 100vh;
   background-color: white;
   box-shadow: 0 20px 40px -5px rgba(#818181, .3);
@@ -16,6 +16,7 @@
   right: 30px;
   top: 30px;
   cursor: pointer;
+  background-color: #FFD829;
   
   &::before, 
   &::after {
@@ -23,7 +24,7 @@
     width: 16px;
     height: 2px;
     position: absolute;
-    background: white;
+    background-color: #000;
     display: block;
     top: 50%;
     transform: translateY(-50%);
