@@ -5,9 +5,9 @@ import styles from './ShoppingListView.module.scss';
 
 const ShoppingListView = () => (
     <AppContext.Consumer>
-        {(context) => {
+        {(context) => (
             <List items={context.product}/>
-        }}
+        )}
     </AppContext.Consumer>
 );
 

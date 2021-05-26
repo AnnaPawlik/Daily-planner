@@ -5,9 +5,9 @@ import styles from './NotesView.module.scss';
 
 const NotesView = () => (
    <AppContext.Consumer>
-       {(context) => {
+       {(context) => (
            <List items={context.note}/>
-       }}
+       )}
    </AppContext.Consumer>
 );
 

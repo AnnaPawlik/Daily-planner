@@ -25,6 +25,7 @@ class Form extends React.Component {
     state = {
         type: types.priority,
         title: '',
+        time: '',
         description: '',
     };
 
@@ -87,14 +88,22 @@ class Form extends React.Component {
                             onChange={this.handleInputChange}
                             value={this.state.title}
                             name="title"
-                            label="title"
+                            label={type === types.product ? "Product" : "Title"}
                         />
+                        { type === types.task ? (
+                            <Input 
+                                onChange={this.handleInputChange}
+                                value={this.state.time}
+                                name="time"
+                                label="Time"
+                            />
+                        ) : null }                    
                         <Input
                             onChange={this.handleInputChange}
                             value={this.state.description}
                             name="description"
                             tag="textarea"
-                            label="description"
+                            label="Description"
                         />
                         <Button secondary>Add</Button>
                     </form>

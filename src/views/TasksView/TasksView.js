@@ -5,9 +5,9 @@ import List from '../../components/List/List';
 
 const TasksView = () => (
     <AppContext.Consumer>
-        {(context) => {
+        {(context) => (
             <List items={context.task} />
-        }}
+        )}
     </AppContext.Consumer>
 );
 
