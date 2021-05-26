@@ -1,5 +1,9 @@
 .wrapper {
-    width: 80vw;
+    width: 90vw;
     margin: 100px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
 }
   
