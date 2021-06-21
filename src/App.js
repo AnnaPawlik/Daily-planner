@@ -4,7 +4,7 @@ import TopPrioritetsView from './views/TopPrioritetsView/TopPrioritetsView';
 import TasksView from './views/TasksView/TasksView';
 import ShoppingListView from './views/ShoppingListView/ShoppingListView';
 import NotesView from './views/NotesView/NotesView';
-import './App.css';
+import GlobalStyle from '../src/theme/GlobalStyle';
 import Header from './components/Header/Header';
 import Modal from'./components/Modal/Modal';
 import AppContext from './context';
@@ -51,6 +51,7 @@ class App extends React.Component {
     return (
         <BrowserRouter>
         <AppContext.Provider value={contextElements}>
+          <GlobalStyle/>
           <Header openModalFn={this.openModal}/>
             <Switch>
               <Route exact path="/" component={TopPrioritetsView} />

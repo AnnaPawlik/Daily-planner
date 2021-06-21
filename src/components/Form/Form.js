@@ -105,7 +105,7 @@ class Form extends React.Component {
                             tag="textarea"
                             label="Description"
                         />
-                        <Button secondary>Add</Button>
+                        <Button>Add</Button>
                     </form>
                 </div>
                 )}
