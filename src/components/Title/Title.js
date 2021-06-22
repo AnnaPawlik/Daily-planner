@@ -1,10 +1,9 @@
-import React from 'react';
-import styles from './Title.module.scss';
+import styled from 'styled-components';
 
-const Title = ({children}) => (
-  <h2 className={styles.title}>
-    {children}
-  </h2>
-);
+const Title = styled.h2`
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+`;
 
 export default Title;

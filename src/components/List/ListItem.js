@@ -1,17 +1,48 @@
 import React from 'react';
+import styled, {keyframes} from 'styled-components';
 import PropTypes from 'prop-types';
-import styles from './ListItem.module.scss';
 import Button from '../Button/Button';
+import Title from '../Title/Title';
+import Paragraph from '../Paragraph/Paragraph';
+
+const appear = keyframes`
+    0% {
+      opacity: 0;
+      top: 35px;
+    }
+    100% {
+      opacity: 1;
+      top: 0;
+    }
+`;
+
+const InnerWrapper = styled.li`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
+    position: relative;
+    animation: ${appear} .5s ease;
+    box-shadow: 0 10px 20px -5px rgba(#818181, .3);
+    border-radius: 10px;
+    width: 400px;
+    margin: 40px;
+`;
+
+const StyledTitle = styled(Title)`
+  padding: 10px;
+  background-color: #FFD829;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+`;
 
 const ListItem = ({title, description, time}) => (
-    <li className={styles.wrapper}>
-        <h2 className={styles.title}>{title}</h2>
-        <p>{time}</p>
-        <p className={styles.description}>{description}</p>
-        <div className={styles.button}>
-            <Button secondary>Remove</Button>
-        </div>
-    </li>
+    <InnerWrapper>
+        <StyledTitle>{title}</StyledTitle>
+        <Paragraph>{time}</Paragraph>
+        <Paragraph>{description}</Paragraph>
+        <Button secondary>Remove</Button>
+    </InnerWrapper>
 );
 
 ListItem.propTypes = { 

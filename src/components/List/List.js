@@ -1,14 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 import ListItem from './ListItem';
-import styles from './List.module.scss';
+
+const Wrapper = styled.ul`
+    width: 90vw;
+    margin: 100px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+`;
 
 const List = ({items}) => (
     <div>
-        <ul className={styles.wrapper}>
+        <Wrapper>
             {items.map(item => (
                 <ListItem key={item.name} {...item}/>
             ))}
-        </ul>
+        </Wrapper>
     </div>
 );
 

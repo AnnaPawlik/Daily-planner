@@ -1,10 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import styles from './Form.module.scss';
 import Radio from './FormRadio';
 import AppContext from '../../context';
 import Title from '../Title/Title';
+
+const Wrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+`;
+
+const StyledForm = styled.form`
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+`;
 
 const types = {
     priority: "priority",
@@ -47,11 +63,10 @@ class Form extends React.Component {
         return(
             <AppContext.Consumer>
                 {(context) => (
-                    <div className={styles.wrapper}>
+                    <Wrapper>
                     <Title>Add new {description[type]}</Title>
-                    <form 
+                    <StyledForm 
                         autoComplete="off"
-                        className={styles.form}
                         onSubmit={(e) => context.addItem(e, this.state)}
                     >
                         <div>
@@ -102,12 +117,12 @@ class Form extends React.Component {
                             onChange={this.handleInputChange}
                             value={this.state.description}
                             name="description"
-                            tag="textarea"
                             label="Description"
+                            textarea
                         />
                         <Button>Add</Button>
-                    </form>
-                </div>
+                    </StyledForm>
+                </Wrapper>
                 )}
             </AppContext.Consumer>
         );

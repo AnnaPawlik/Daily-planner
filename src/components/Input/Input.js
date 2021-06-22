@@ -1,11 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Input.module.scss';
+import styled, { css } from 'styled-components';
 
-const Input = ({tag: Tag, name, label, maxLength, ...props}) => (
-  <div className={styles.formItem}>
-    <Tag
-      className={Tag === 'textarea' ? styles.textarea : styles.input}
+const FormItem = styled.div`
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 40px;
+`;
+const StyledLabel = styled.label`
+    color: #7d7d7d;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    transition: 0.2s ease-out all;
+    font-size: 12px;
+    text-transform: uppercase;
+`;
+
+const StyledInput = styled.input`
+    color: #7d7d7d;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    line-height: 22px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus + ${StyledLabel} {
+      top: -22px;
+      font-size: 13px;
+    }
+
+    ${({textarea}) => textarea && css `
+      resize: none;
+      min-height: 250px;
+    `}  
+`;
+
+const Input = ({name, label, maxLength, ...props}) => (
+  <FormItem>
+    <StyledInput
       type="text"
       name={name}
       id={name}
@@ -14,10 +54,10 @@ const Input = ({tag: Tag, name, label, maxLength, ...props}) => (
       placeholder=" "
       {...props}
     />
-    <label className={styles.label} htmlFor={name}>
+    <StyledLabel htmlFor={name}>
       {label}
-    </label>
-  </div>
+    </StyledLabel>
+  </FormItem>
 );
 
 Input.propTypes = {

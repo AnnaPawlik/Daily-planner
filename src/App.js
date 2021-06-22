@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import TopPrioritetsView from './views/TopPrioritetsView/TopPrioritetsView';
-import TasksView from './views/TasksView/TasksView';
-import ShoppingListView from './views/ShoppingListView/ShoppingListView';
-import NotesView from './views/NotesView/NotesView';
+import TopPrioritetsView from './views/TopPrioritetsView';
+import TasksView from './views/TasksView';
+import ShoppingListView from './views/ShoppingListView';
+import NotesView from './views/NotesView';
 import GlobalStyle from '../src/theme/GlobalStyle';
 import Header from './components/Header/Header';
 import Modal from'./components/Modal/Modal';

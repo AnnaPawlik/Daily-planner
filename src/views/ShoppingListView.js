@@ -1,7 +1,6 @@
 import React from 'react';
-import List from '../../components/List/List';
-import AppContext from '../../context';
-import styles from './ShoppingListView.module.scss';
+import List from '../components/List/List';
+import AppContext from '../context';
 
 const ShoppingListView = () => (
     <AppContext.Consumer>
