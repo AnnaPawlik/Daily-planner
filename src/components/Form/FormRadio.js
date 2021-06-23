@@ -7,7 +7,7 @@ const StyledRadio = styled.label`
   align-items: center;
   margin: 20px 20px 0 0;
   font-weight: 700;
-  color: #818181;
+  color: #000;
   cursor: pointer;
 `;
 
@@ -16,7 +16,7 @@ const RadioButton = styled.div`
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  border: 2px solid #818181;
+  border: 2px solid #000;
 `;
 
 const RadioInput = styled.input`
@@ -24,7 +24,7 @@ const RadioInput = styled.input`
     position: absolute;
 
     &:checked + ${RadioButton} {
-      background-color: #818181;
+      background-color: #000;
       box-shadow: inset 0 0 0 2px white;
     }
 `;

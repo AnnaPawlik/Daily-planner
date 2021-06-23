@@ -104,6 +104,7 @@ class Form extends React.Component {
                             value={this.state.title}
                             name="title"
                             label={type === types.product ? "Product" : "Title"}
+                            maxLength="30"
                         />
                         { type === types.task ? (
                             <Input 
@@ -111,6 +112,7 @@ class Form extends React.Component {
                                 value={this.state.time}
                                 name="time"
                                 label="Time"
+                                maxLength="6"
                             />
                         ) : null }                    
                         <Input

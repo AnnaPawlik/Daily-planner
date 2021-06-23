@@ -8,6 +8,7 @@ const FormItem = styled.div`
     flex-shrink: 0;
     margin-top: 40px;
 `;
+
 const StyledLabel = styled.label`
     color: #7d7d7d;
     position: absolute;
@@ -28,6 +29,11 @@ const StyledInput = styled.input`
     background: rgba(0, 0, 0, 0.1);
     padding: 5px;
 
+    &:not(:placeholder-shown) + ${StyledLabel} {
+      top: -22px;
+      font-size: 13px;
+    }
+
     &:focus {
       outline: none;
     }
@@ -40,7 +46,7 @@ const StyledInput = styled.input`
     ${({textarea}) => textarea && css `
       resize: none;
       min-height: 250px;
-    `}  
+    `}
 `;
 
 const Input = ({name, label, maxLength, ...props}) => (

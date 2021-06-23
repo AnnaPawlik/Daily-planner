@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     right: 0;
     width: 30vw;
     height: 100vh;
+    background-color: #fff;
     box-shadow: 0 20px 40px -5px rgba(0, 0, 0, .3);
 `;
 

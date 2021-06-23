@@ -23,7 +23,7 @@ const InnerWrapper = styled.li`
     list-style: none;
     position: relative;
     animation: ${appear} .5s ease;
-    box-shadow: 0 10px 20px -5px rgba(#818181, .3);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .3);
     border-radius: 10px;
     width: 400px;
     margin: 40px;
@@ -31,6 +31,7 @@ const InnerWrapper = styled.li`
 
 const StyledTitle = styled(Title)`
   padding: 10px;
+  margin-top: 0;
   background-color: #FFD829;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
