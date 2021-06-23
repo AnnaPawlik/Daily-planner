@@ -2,9 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import HeaderNavigation from './HeaderNavigation';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Title from '../Title/Title';
+import addIcon from '../../assets/plus.svg';
+
+const StyledButton = styled(Button)`
+    padding: 25px 5px;
+    background-image: url(${({icon}) => icon});
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+`;
 
 const Wrapper = styled.header`
     display: grid;
@@ -21,7 +27,7 @@ const Header = ({openModalFn}) => (
     <Wrapper>
         <Title>Daily planner</Title>
         <HeaderNavigation />
-        <Button onClick={openModalFn}><FontAwesomeIcon icon={faPlus}/></Button>
+        <StyledButton onClick={openModalFn} icon={addIcon}/>
     </Wrapper>
 );
 

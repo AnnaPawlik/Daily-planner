@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faShoppingCart, faStar, faTasks } from '@fortawesome/free-solid-svg-icons';
+import shopIcon from '../../assets/shopping.svg';
+import penIcon from '../../assets/pen.svg';
+import taskIcon from '../../assets/clipboard.svg';
+import topIcon from '../../assets/priority.svg';
+import Button from '../Button/Button';
 
 const LinksList = styled.ul`
     padding: 0;
@@ -11,35 +14,34 @@ const LinksList = styled.ul`
 `;
 
 const ItemList = styled.li`
-    margin-top: 20px;
     font-size: 30px;
     padding: 10px;
-
-    &:hover {
-        background-color: #fff;
-        border-radius: 20%;
-    }
 `;
 
-const ItemLink = styled.button`
-    text-decoration: none;
-    color: #000000;
+const ItemLink = styled(Button)`
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url(${({icon}) => icon});
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: transparent;
 `;
 
 const HeaderNavigation = () => (
     <nav>
         <LinksList>
             <ItemList>
-                <ItemLink as={NavLink} to="/"><FontAwesomeIcon icon={faStar}/></ItemLink>
+                <ItemLink as={NavLink} to="/" icon={topIcon} />
             </ItemList>
             <ItemList>
-                <ItemLink as={NavLink} to="/tasks"><FontAwesomeIcon icon={faTasks}/></ItemLink>
+                <ItemLink as={NavLink} to="/tasks" icon={taskIcon} />
             </ItemList>
             <ItemList>
-                <ItemLink as={NavLink} to="/shoppinglist"><FontAwesomeIcon icon={faShoppingCart}/></ItemLink>
+                <ItemLink as={NavLink} to="/shoppinglist" icon={shopIcon} />
             </ItemList>
             <ItemList>
-                <ItemLink as={NavLink} to="/notes"><FontAwesomeIcon icon={faPen}/></ItemLink>
+                <ItemLink as={NavLink} to="/notes" icon={penIcon} />
             </ItemList>
         </LinksList>
     </nav>
