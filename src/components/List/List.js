@@ -12,13 +12,11 @@ const Wrapper = styled.ul`
 `;
 
 const List = ({items}) => (
-    <div>
-        <Wrapper>
-            {items.map(item => (
-                <ListItem key={item.name} {...item}/>
-            ))}
-        </Wrapper>
-    </div>
+    <Wrapper>
+        {items.map(item => (
+            <ListItem key={item.name} {...item}/>
+        ))}
+    </Wrapper>
 );
 
 export default List;

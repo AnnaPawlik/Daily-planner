@@ -9,13 +9,13 @@ const Button = styled.button`
   padding: 7px 5px;
   width: 120px;
   font-size: .8em;
-  margin-top: 20px;
+  margin-top: 40px;
 
   ${({secondary}) => 
     secondary && css `
     background-color: #E6E6E6;
     font-size: 10px;
-    margin: 10px 5px;
+    margin: 40px 5px;
   `}
   
   ${({close}) => 

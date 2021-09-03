@@ -32,7 +32,7 @@ const HeaderNavigation = () => (
     <nav>
         <LinksList>
             <ItemList>
-                <ItemLink as={NavLink} to="/" icon={topIcon} />
+                <ItemLink as={NavLink} to="/priority" icon={topIcon} />
             </ItemList>
             <ItemList>
                 <ItemLink as={NavLink} to="/tasks" icon={taskIcon} />

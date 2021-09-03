@@ -12,7 +12,7 @@ const FormItem = styled.div`
 const StyledLabel = styled.label`
     color: #7d7d7d;
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 20px;
     transition: 0.2s ease-out all;
     font-size: 12px;
@@ -23,11 +23,11 @@ const StyledInput = styled.input`
     color: #7d7d7d;
     font-size: 16px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     line-height: 22px;
     width: 100%;
     background: rgba(0, 0, 0, 0.1);
-    padding: 5px;
+    padding: 10px;
 
     &:not(:placeholder-shown) + ${StyledLabel} {
       top: -22px;
@@ -70,12 +70,12 @@ Input.propTypes = {
   tag: PropTypes.string,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  maxLength: PropTypes.number,
+  maxLength: PropTypes.string,
 }
 
 Input.defaultProps = {
   tag: 'input',
-  maxLength: 200,
+  maxLength: '200',
 }
 
 export default Input;

@@ -26,6 +26,7 @@ const InnerWrapper = styled.li`
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .3);
     border-radius: 10px;
     width: 400px;
+    max-height: 250px;
     margin: 40px;
 `;
 

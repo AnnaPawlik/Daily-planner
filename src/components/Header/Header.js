@@ -23,7 +23,7 @@ const Wrapper = styled.header`
     min-width: 200px;
 `;
 
-const Header = ({openModalFn}) => (
+const Header = ({openModalFn }) => (
     <Wrapper>
         <Title>Daily planner</Title>
         <HeaderNavigation />
