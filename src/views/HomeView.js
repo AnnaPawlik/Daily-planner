@@ -8,8 +8,6 @@ import GlobalStyle from '../theme/GlobalStyle';
 import Header from '../components/Header/Header';
 import Modal from'../components/Modal/Modal';
 import AppContext from '../context';
-// import RegisterView from './RegisterView';
-// import LoginView from './LoginView';
 
 class HomeView extends React.Component {
 

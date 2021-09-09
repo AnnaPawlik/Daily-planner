@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Title from '../components/Title/Title';
 import Input from '../components/Input/Input';
 import Button from '../components/Button/Button';
+import store from '../redux/store';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
 `;
-const StyledForm = styled.form`
+const Styleddiv = styled.div`
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -43,14 +44,23 @@ class LoginView extends React.Component {
         })
     };
 
-    handleSubmit = e => {
-        e.preventDefault();
-    };
+    handleSubmit = () => {
+        const { email, password } = this.state;
+    
+        if (
+          store.getState().addUser.email === email &&
+          store.getState().addUser.password === password
+        ) {
+          this.props.history.push("/home");
+        } else {
+          console.log("email or password is incorrect");
+        }
+      };
 
     render() {
         return(
             <Wrapper>
-                <StyledForm 
+                <Styleddiv 
                     autoComplete="off"
                     onSubmit={this.handleSubmit}
                 >
@@ -67,9 +77,9 @@ class LoginView extends React.Component {
                         name="password"
                         label="password"
                     />                  
-                    <Button>Sign In</Button>
+                    <Button onClick={this.handleSubmit}>Sign In</Button>
                     <Link as={NavLink} to="/register">Register</Link>
-                </StyledForm>
+                </Styleddiv>
             </Wrapper>
         );
     }

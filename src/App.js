@@ -12,9 +12,9 @@ class App extends React.Component {
         <BrowserRouter>
           <GlobalStyle/>
             <Switch>
-              <Route exact path="/" component={LoginView} />
               <Route exact path="/register" component={RegisterView} />
-              <Route path="/home" component={HomeView} />
+              <Route exact path="/" component={LoginView} />
+              <Route exact path="/home" component={HomeView} />
             </Switch>
         </BrowserRouter>      
     );

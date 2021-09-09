@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Title from '../components/Title/Title';
 import Input from '../components/Input/Input';
 import Button from '../components/Button/Button';
+import store from '../redux/store';
+import { addUser } from '../redux/actions';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -31,55 +33,81 @@ const Link = styled(Button)`
 `;
 
 class RegisterView extends React.Component {
+  state = {
+    username: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  };
 
-    state = {
-        username: '',
-        email: '',
-        password: '',
-    };
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-    handleInputChange = e => {
-        this.setState({
-            [e.target.name] : e.target.value,
-        })
-    };
+  handlePassword = () => {
+    const { username, email, password, passwordConfirm } = this.state;
 
-    handleSubmit = e => {
-        e.preventDefault();
-    };
-
-    render() {
-        return(
-            <Wrapper>
-                <StyledForm 
-                    autoComplete="off"
-                    onSubmit={this.handleSubmit}
-                >
-                    <Title>Welcome, Create Account</Title>
-                    <Input
-                        onChange={this.handleInputChange}
-                        value={this.state.username}
-                        name="username"
-                        label="username"
-                    />
-                    <Input
-                        onChange={this.handleInputChange}
-                        value={this.state.email}
-                        name="email"
-                        label="email"
-                    />
-                    <Input
-                        onChange={this.handleInputChange}
-                        value={this.state.password}
-                        name="password"
-                        label="password"
-                    />                  
-                    <Button>Sign Up</Button>
-                    <Link as={NavLink} to="/">Cancel</Link>
-                </StyledForm>
-            </Wrapper>
-        );
+    if (password === passwordConfirm) {
+      console.log("SUCCESS!!");
+      store.dispatch(
+        addUser({ username: username, email: email, password: password })
+      );
+      this.props.history.push("/");
+    } else {
+      console.log("password incorrect");
     }
+  };
+
+  handleSubmit = () => {
+    const { username, email, password, passwordConfirm, } = this.state;
+    if (username === "" || email === "") {
+      console.log("please fill out fields");
+    } else if (password === "" || passwordConfirm === "") {
+      console.log("please fill out the password field");
+    } else {
+      this.handlePassword();
+    }
+  };
+
+  render() {
+    return (
+          <Wrapper>
+            <StyledForm 
+            autoComplete="off"
+            onSubmit={this.handleSubmit}
+            >
+              <Title>Welcome, Create Account</Title>
+              <Input
+                onChange={this.handleInputChange}
+                value={this.state.username}
+                name="username"
+                label="username"
+                
+              />
+              <Input
+                onChange={this.handleInputChange}
+                value={this.state.email}
+                name="email"
+                label="email"
+              />
+              <Input
+                onChange={this.handleInputChange}
+                value={this.state.password}
+                name="password"
+                label="password"
+              />  
+              <Input
+                onChange={this.handleInputChange}
+                value={this.state.passwordConfirm}
+                name="passwordConfirm"
+                label="confirm password"
+              />  
+              <Button onClick={this.handleSubmit}>Sign Up</Button>
+              <Link as={NavLink} to="/">Cancel</Link>
+            </StyledForm>
+          </Wrapper>
+    );
+  }
 }
 
 export default RegisterView;
